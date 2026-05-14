@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <style>
+
+        /* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f1e8;
+    min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+    background: #2d2d2d;
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    display: block;
+}
+
+nav ul li a:hover {
+    background: #ffb947;
+    color: #000;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: transparent;
+    margin: 2rem auto;
+    max-width: 900px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Sections */
+.section {
+    background: #e8f4f8;
+    margin: 2rem auto;
+    padding: 3rem 2.5rem;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #3498db;
+    padding-left: 1rem;
+}
+
+.section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* Lists */
+.list {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.list li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+}
+
+.list li b {
+    color: #2c3e50;
+}
+
+/* Highlight Section */
+.section.highlight {
+    background: #d4e9f7;
+    color: #2c3e50;
+    border: 2px solid #3498db;
+}
+
+.section.highlight h2 {
+    color: #2c3e50;
+    border-left-color: #3498db;
+}
+
+.section.highlight p {
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.section.highlight strong,
+.section.highlight b {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .list li {
+        font-size: 1rem;
+    }
+}
+    </style>
+   
+<script src="config.js"></script>`n</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="Upload Resume.html">Upload Resume</a></li>
+            <li><a href="Network.html">Network With Peers</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="hackathon.html">Hackathons</a></li>
+            <li><a href="pro.html">Pro Version</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <h1>Empowering Careers, Connecting Talent</h1>
+        <p>
+            At <strong>JobBoard Pro</strong>, we believe that everyone deserves the 
+            <b><u>right opportunity</u></b> to grow, succeed, and showcase their abilities.
+        </p>
+    </header>
+
+    <!-- MISSION -->
+    <section class="section">
+        <h2>🚀 Our Mission</h2>
+        <p>Our mission is simple:</p>
+
+        <ul class="list">
+            <li>Make job hunting smarter</li>
+            <li>Hiring faster</li>
+            <li>And the process more human</li>
+        </ul>
+
+        <p>
+            Whether you're a fresher or a working pro — we help you move closer 
+            to your dream opportunity.
+        </p>
+    </section>
+
+    <!-- WHAT MAKES US DIFFERENT -->
+    <section class="section">
+        <h2>🌟 What Makes Us Different?</h2>
+
+        <ol class="list">
+            <li><b>Personalized Job Recommendations:</b> Get jobs that match your skills and goals.</li>
+            <li><b>Resume Builder & Uploader:</b> Create a professional resume easily.</li>
+            <li><b>Real-Time Networking:</b> Connect with peers and mentors.</li>
+            <li><b>Verified Listings Only:</b> Say goodbye to fake job posts.</li>
+            <li><b>Showcase Achievements:</b> Stand out through your certificates & projects.</li>
+        </ol>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="section highlight">
+        <h2>🤝 Join Our Community</h2>
+        <p>
+            Thousands trust JobBoard Pro for career growth.  
+            We're more than a job portal — <strong>we’re your career companion.</strong>
+        </p>
+        <p><b>Start your journey today. The right job can change your life.</b></p>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network With Peers</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffffff, #ffeed0, #f4f4f4);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        nav { background: #2d2d2d; padding: 15px 0; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); margin-bottom: 40px; border-radius: 10px; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 0; padding: 0; }
+        nav ul li a { text-decoration: none; color: white; font-size: 16px; padding: 8px 15px; border-radius: 8px; transition: 0.3s; }
+        nav ul li a:hover { background: #ffb947; color: #000; }
+
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h1 { font-size: 42px; color: #2d2d2d; margin-bottom: 10px; font-weight: 700; }
+        .page-header p { font-size: 18px; color: #666; max-width: 600px; margin: 0 auto; }
+
+        .network-container { max-width: 1400px; margin: 0 auto; }
+        .network-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 20px; }
+
+        .person-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: 0.4s;
+        }
+        .person-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); }
+        .person-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid #ffb947; }
+
+        .skill-tag { background: #e3f2fd; padding: 6px 14px; border-radius: 20px; font-size: 12px; }
+        .connect-btn { background: #2d2d2d; color: white; border: none; padding: 14px 35px; border-radius: 30px; font-size: 16px; cursor: pointer; }
+
+        .toast {
+            position: fixed; top: -150px; right: 30px;
+            background: #28a745; color: white;
+            padding: 20px 30px; border-radius: 15px;
+            transition: 0.5s; z-index: 9999;
+        }
+        .toast.show { top: 30px; }
+    </style>
+<script src="config.js"></script>`n</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Upload Resume.html">Upload Resume</a></li>
+            <li><a href="Network.html">Network With Peers</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="hackathon.html">Hackathons</a></li>
+            <li><a href="pro.html">Pro Version</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <h1>Connect With Peers</h1>
+        <p>Build your professional network and connect with talented individuals</p>
+    </div>
+
+    <div class="network-container">
+        <div class="network-grid" id="peopleGrid">
+            <p style="grid-column: 1/-1; text-align:center;">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <div id="toast-message">You are now connected!</div>
+    </div>
+
+    <script>
+        function connectUser(btn, name) {
+            btn.textContent = "Connected";
+            btn.disabled = true;
+
+            document.getElementById("toast-message").textContent =
+                `You are now connected with ${name}!`;
+
+            const toast = document.getElementById("toast");
+            toast.classList.add("show");
+
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        // 🔥 FETCH PEOPLE FROM BACKEND
+        async function loadPeople() {
+            const grid = document.getElementById("peopleGrid");
+
+            try {
+                let res = await fetch("/network");
+                let data = await res.json();
+
+                grid.innerHTML = ""; // remove loader
+
+                data.forEach(person => {
+                    const fname = person.fname || person.firstName || person.clientnamefirst || "";
+                    const lname = person.lname || person.lastName || person.clientnamelast || "";
+                    const fullName = (fname + " " + lname).trim() || "Unknown User";
+                    const profession = person.jobprofile || person.jobProfile || "No Profession";
+                    grid.innerHTML += `
+                        <div class="person-card">
+                            <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Default Profile Picture">
+                            <h3>${fullName}</h3>
+                            <p class="title">${profession}</p>
+                            <p class="company">${person.email}</p>
+
+                            <div class="skills-container">
+                                <span class="skill-tag">Web Development</span>
+                            </div>
+
+                            <button class="connect-btn" onclick="connectUser(this, '${fullName}')">
+                                Connect
+                            </button>
+                        </div>
+                    `;
+                });
+
+            } catch (err) {
+                grid.innerHTML = `<p style="color:red; text-align:center; grid-column: 1/-1;">
+                    Failed to load data.
+                </p>`;
+            }
+        }
+
+        loadPeople();
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

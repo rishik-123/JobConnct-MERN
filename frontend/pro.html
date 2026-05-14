@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Subscribe to Pro</title>
+
+    <style>
+        /* ---------------- RESET ---------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        nav {
+            background: #2d2d2d;
+            width: 100%;
+            padding: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            position: fixed;       /* 🔥 navbar stays at top */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #ffb947;
+            color: black;
+        }
+
+        /* ---------------- CONTENT WRAPPER ---------------- */
+        .page-content {
+            margin-top: 110px; /* 🔥 pushes content below fixed navbar */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ---------------- PLANS ---------------- */
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 25px;
+            width: 300px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            transition: 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .features li {
+            margin: 8px 0;
+        }
+
+        button {
+            background: #ffb947;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff9a1a;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-bottom: 30px;
+            font-size: 18px;
+            color: #444;
+        }
+    </style>
+
+<script src="config.js"></script>`n</head>
+
+<body>
+
+    <!-- 🔥 FIXED NAVBAR -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Upload Resume.html">Upload Resume</a></li>
+            <li><a href="Network.html">Network With Peers</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="hackathon.html">Hackathons</a></li>
+            <li><a href="pro.html">Pro Version</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+
+        <h1>Upgrade to <span style="color:#ff9a1a;">Pro Version</span></h1>
+        <p>Unlock premium features and take your career growth to the next level.</p>
+
+        <div class="plans">
+
+            <!-- PRO -->
+            <div class="plan-card">
+                <h2>Pro Plan</h2>
+                <p class="price">₹249 <span style="font-size:15px;">/month</span></p>
+
+                <ul class="features">
+                    <li>✔ Unlimited Resume Uploads</li>
+                    <li>✔ Premium Networking Features</li>
+                    <li>✔ Highlighted Profile</li>
+                    <li>✔ Unlimited Achievements</li>
+                    <li>✔ Exclusive Hackathons</li>
+                </ul>
+
+                <button onclick="payNow('pro')">Upgrade Now ⭐</button>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="plan-card">
+                <h2>Premium Annual</h2>
+                <p class="price">₹1999 <span style="font-size:15px;">/year</span></p>
+
+                <ul class="features">
+                    <li>✔ Everything in Pro</li>
+                    <li>✔ Early Feature Access</li>
+                    <li>✔ AI Resume Review</li>
+                    <li>✔ Career Mentorship</li>
+                </ul>
+
+                <button onclick="payNow('premium')">Go Premium ✨</button>
+            </div>
+
+
+<script>
+async function payNow(plan) {
+  const res = await fetch("/create-checkout-session", { 
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ plan })
+  });
+  const data = await res.json();
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    console.error("Error:", data.error);
+    alert("Error starting checkout");
+  }
+}
+</script>
+
+        </div>
+
+        <footer>
+            Grow faster. Learn better. Achieve more.
+        </footer>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

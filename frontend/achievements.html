@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta charset="UTF-8">
+  <title>Upload Resume</title>
+  <link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+    function sub(){
+        alert("Post  uploaded Succesfully");
+    }
+</script>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(white, #f0f4ff);
+        margin: 0;
+        padding: 0;
+    }
+
+    .upload-container {
+        max-width: 600px;
+        margin: 60px auto;
+        background-color: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .upload-container h1 {
+        color: #2C3E50;
+        margin-bottom: 10px;
+    }
+
+    .upload-container p {
+        color: gray;
+        margin-bottom: 30px;
+    }
+
+    .upload-box {
+        border: 2px dashed #3498DB;
+        padding: 40px;
+        border-radius: 15px;
+        transition: 0.3s ease;
+        background-color: #ecf6ff;
+    }
+
+    .upload-box:hover {
+        background-color: #d8eefe;
+        cursor: pointer;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-btn {
+        margin-top: 20px;
+        background-color: #27AE60;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .custom-btn:hover {
+        background-color: #2ecc71;
+    }
+
+    label[for="resume"] {
+        font-size: 18px;
+        font-weight: bold;
+        color: #3498DB;
+        cursor: pointer;
+    }
+  </style>
+<script src="config.js"></script>`n</head>
+<body>
+<div>
+    <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="Upload Resume.html">Upload Resume</a></li>
+                <li><a href="Network.html">Network With Peers</a></li>
+                <li><a href="achievements.html">Post achievements here</a></li>
+                <li><a href="hackathon.html">Hackathons</a></li>
+                <li><a href="pro.html">Subscribe to Pro Version</a></li>
+                <li><a href="login.html">Click to Login here</a></li>
+                <li><a href="register.html">Click here to Register</a></li>
+    
+        </nav>
+        </div>
+<div class="upload-container">
+    <h1>Post your Acheivements here</h1>
+    <p>Stand out to top recruiters with professional acheievements</p>
+
+   <form action="/achievements" method="POST" enctype="multipart/form-data">
+    <div class="upload-box" onclick="document.getElementById('resume').click();">
+        <label for="resume">Click here to select Your Achievements</label><br><br>
+        <span>📎 Supported: PDF, DOC, DOCX, PNG, MP4</span>
+        <input type="file" name="resume" id="resume" 
+               accept=".pdf,.doc,.docx,.png,.mp4" required>
+    </div>
+
+    <input type="text" name="type" placeholder="Achievement Type (Hackathon, Award, etc)" required>
+
+    <button type="submit" onclick="sub()" class="custom-btn">Post Achievements</button>
+</div>
+</form>
+
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

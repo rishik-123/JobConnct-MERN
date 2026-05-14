@@ -1,0 +1,268 @@
+/* ===== GLOBAL STYLES ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #ffeed0, #f4f4f4);
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background: #2d2d2d;
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    display: block;
+}
+
+nav ul li a:hover {
+    background: #ffb947;
+    color: #000;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2 {
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+}
+
+p {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+strong {
+    display: block;
+    max-width: 900px;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== LINKS ===== */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+/* ===== IMAGES ===== */
+img {
+    width: 60px;
+    height: 60px;
+    margin-left: 25px;
+    border-radius: 50%;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+/* ===== CONTENT BOXES ===== */
+div > div {
+    background-color: cyan;
+    padding: 2px;
+    border: 5px solid black;
+    margin-right: 0;
+    width: 50%;
+}
+
+/* ===== WHY CHOOSE US SECTION ===== */
+.why-choose-us {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+
+.box {
+    width: 30%;
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+/* ===== REVIEWS SECTION ===== */
+.reviews {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-radius: 0;
+}
+
+/* ===== QR BOX ===== */
+.qr-box {
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+    transition: 0.3s ease;
+}
+
+.qr-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+.qr-box img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.qr-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+ul li, ol li {
+    font-size: 18px;
+    padding: 8px 0;
+    text-align: center;
+}
+/* ===== FOOTER ===== */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== FOOTER ===== */
+/* ===== FOOTER ===== */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .box {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+footer .box:hover {
+    transform: scale(1.05);
+}
+
+footer .box p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+footer .box a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #2d2d2d;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+footer .box a:hover {
+    background: #ffb947;
+    color: #000;
+}
+
+footer .qr-box {
+    flex-shrink: 0;
+    max-width: 220px;
+    padding: 15px;
+}
+
+footer .qr-box img {
+    max-width: 180px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .why-choose-us, .reviews {
+        flex-direction: column;
+        align-items: center;
+    }
+    .box, div > div {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        max-width: 300px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer .box {
+        max-width: 100%;
+    }
+}
