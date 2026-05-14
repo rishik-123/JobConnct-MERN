@@ -57,7 +57,33 @@ const db = process.env.DATABASE_URL
     });
 
 db.connect()
-  .then(() => console.log("Connected to PostgreSQL"))
+  .then(async () => {
+    console.log("Connected to PostgreSQL");
+    try {
+      await db.query(`
+        CREATE TABLE IF NOT EXISTS register (
+          id SERIAL PRIMARY KEY,
+          fname VARCHAR(255),
+          lname VARCHAR(255),
+          jobProfile VARCHAR(255),
+          contactnumber VARCHAR(255),
+          email VARCHAR(255) UNIQUE,
+          password VARCHAR(255)
+        );
+      `);
+      await db.query(`
+        CREATE TABLE IF NOT EXISTS achieve (
+          id SERIAL PRIMARY KEY,
+          type VARCHAR(255),
+          numberofachievements VARCHAR(255),
+          filepath VARCHAR(255)
+        );
+      `);
+      console.log("Database tables verified!");
+    } catch (err) {
+      console.error("Error creating tables:", err);
+    }
+  })
   .catch(err => console.error("DB Error:", err));
 
 // ---------------- HOME ----------------
