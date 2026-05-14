@@ -1,6 +1,6 @@
 // config.js
 // Update this URL with your Render backend URL once deployed
-const BACKEND_URL = "https://jobconnect-backend.onrender.com";
+const BACKEND_URL = "https://jobconnct-mern.onrender.com";
 
 // Automatically update all form actions and fetch URLs on the page
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Override fetch to automatically prepend backend URL if path starts with '/'
 const originalFetch = window.fetch;
-window.fetch = function() {
+window.fetch = function () {
     let [resource, config] = arguments;
     if (typeof resource === "string" && resource.startsWith("/")) {
         resource = BACKEND_URL + resource;
