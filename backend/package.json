@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js",
+    "start": "node import.js && node index.js",
+    "dev": "node import.js && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "rishik",
