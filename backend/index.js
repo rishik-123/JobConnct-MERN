@@ -7,6 +7,9 @@ import { fileURLToPath } from "url";
 import fs from "fs";
 import dotenv from "dotenv";
 import cors from "cors";
+import bcrypt from "bcrypt";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 dotenv.config();
 
 import Stripe from "stripe";
@@ -27,7 +30,17 @@ if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
 }
 
-// ---------------- MIDDLEWARE ----------------
+// ---------------- MIDDLEWARE & SECURITY ----------------
+app.use(helmet());
+
+// Rate Limiting to prevent brute force / DDoS
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per window
+  message: "Too many requests from this IP, please try again later."
+});
+app.use(limiter);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -93,6 +106,8 @@ app.post("/register", async (req, res) => {
       exampleInputPassword1
     } = req.body;
 
+    const hashedPassword = await bcrypt.hash(exampleInputPassword1, 10);
+
     await db.query(
       "INSERT INTO register (fname, lname, jobProfile, contactnumber, email, password) VALUES ($1,$2,$3,$4,$5,$6)",
       [
@@ -101,7 +116,7 @@ app.post("/register", async (req, res) => {
         JobProfile,
         contactno,
         exampleInputEmail1,
-        exampleInputPassword1
+        hashedPassword
       ]
     );
 
@@ -133,7 +148,19 @@ app.post("/login", async (req, res) => {
 
     const user = result.rows[0];
 
-    if (password === user.password) {
+    let isMatch = false;
+    try {
+      isMatch = await bcrypt.compare(password, user.password);
+    } catch (e) {
+      isMatch = false; // Not a valid bcrypt hash
+    }
+
+    if (isMatch) {
+      return res.redirect(`${FRONTEND_URL}/index.html`);
+    } else if (password === user.password) {
+      // Legacy plain-text password match. Hash it for future logins!
+      const newHash = await bcrypt.hash(password, 10);
+      await db.query("UPDATE register SET password = $1 WHERE email = $2", [newHash, email]);
       return res.redirect(`${FRONTEND_URL}/index.html`);
     } else {
       return res.send("Incorrect password.");
