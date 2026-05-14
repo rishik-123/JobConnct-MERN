@@ -47,7 +47,7 @@
         }
         .toast.show { top: 30px; }
     </style>
-<script src="config.js"></script>`n</head>
+<script src="config.js"></script></head>
 
 <body>
 
@@ -105,6 +105,11 @@
                 let data = await res.json();
 
                 grid.innerHTML = ""; // remove loader
+
+                if (data.length === 0) {
+                    grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; font-size: 20px; color: #555;">No peers found yet. Go register an account to be the first!</p>`;
+                    return;
+                }
 
                 data.forEach(person => {
                     const fname = person.fname || person.firstName || person.clientnamefirst || "";
