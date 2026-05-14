@@ -8,7 +8,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const db = new pg.Client({ connectionString: process.env.DATABASE_URL });
+const db = new pg.Pool({ connectionString: process.env.DATABASE_URL });
 
 async function importData() {
     if (!process.env.DATABASE_URL) {
