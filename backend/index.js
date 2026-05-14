@@ -108,8 +108,11 @@ app.post("/register", async (req, res) => {
     console.log("Registration success!");
     res.redirect(`${FRONTEND_URL}/index.html`);
   } catch (err) {
-    console.error(err);
-    res.send("Error during registration");
+    console.error("Register Error:", err);
+    if (err.code === '23505') {
+      return res.send("Registration Error: That email address is already registered. Please login instead.");
+    }
+    res.send("Error during registration: " + err.message);
   }
 });
 
@@ -137,8 +140,8 @@ app.post("/login", async (req, res) => {
     }
 
   } catch (err) {
-    console.error(err);
-    res.send("Error during login.");
+    console.error("Login Error:", err);
+    res.send("Error during login: " + err.message);
   }
 });
 
