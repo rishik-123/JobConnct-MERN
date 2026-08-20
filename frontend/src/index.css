@@ -1,33 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
+/* Default fallback theme (Modern & Sleek) + Fonts */
 :root {
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
-
-  /* Premium Light/Black & White Theme Color Palette */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: #ffffff;
-  --border-card: #e2e8f0;
-  
-  --accent-black: #0f172a;
-  --accent-black-hover: #1e293b;
-  --accent-black-muted: rgba(15, 23, 42, 0.05);
-  
-  --accent-blue: #2563eb;
-  --accent-teal: #0284c7;
-  --accent-red: #dc2626;
-  --accent-green: #16a34a;
-
-  /* Typography */
-  --text-primary: #0f172a;
-  --text-grey: #475569;
-  --text-muted: #94a3b8;
-
-  /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-premium: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
-  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --bg-card: #ffffff;
+  --border-card: #e4e4e7;
+  
+  --accent-black: #18181b; 
+  --accent-black-hover: #09090b;
+  --accent-black-muted: rgba(24, 24, 27, 0.05);
+  
+  --accent-blue: #2563eb; 
+  --accent-teal: #06b6d4;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+
+  --text-primary: #09090b;
+  --text-grey: #52525b;
+  --text-muted: #71717a;
+  
+  --shadow-premium: 0 10px 30px rgba(24, 24, 27, 0.04);
+  --shadow-hover: 0 20px 40px rgba(24, 24, 27, 0.08);
+}
+
+/* 1. Theme: Classic Trust (Navy Blue and Cool Gray) */
+.theme-classic {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --border-card: #cbd5e1;
+  
+  --accent-black: #1e3a8a; /* Deep Navy Blue */
+  --accent-black-hover: #172554;
+  --accent-black-muted: rgba(30, 58, 138, 0.07);
+  
+  --accent-blue: #0284c7; /* Bright Sky Blue */
+  --accent-teal: #0f766e;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+
+  --text-primary: #0f172a;
+  --text-grey: #475569; /* Slate Gray */
+  --text-muted: #64748b;
+  
+  --shadow-premium: 0 10px 30px rgba(30, 58, 138, 0.03);
+  --shadow-hover: 0 20px 40px rgba(30, 58, 138, 0.07);
+}
+
+/* 2. Theme: Growth and Opportunity (Forest Green and Cream) */
+.theme-growth {
+  --bg-primary: #fefcf9; /* Cream */
+  --bg-secondary: #f5ebd6; /* Off-White / Light Cream */
+  --bg-card: #ffffff;
+  --border-card: #e6dcbe;
+  
+  --accent-black: #14532d; /* Forest Green */
+  --accent-black-hover: #052e16;
+  --accent-black-muted: rgba(20, 83, 45, 0.06);
+  
+  --accent-blue: #d4af37; /* Soft Gold */
+  --accent-teal: #166534;
+  --accent-red: #ef4444;
+  --accent-green: #15803d;
+
+  --text-primary: #14532d;
+  --text-grey: #166534;
+  --text-muted: #15803d;
+  
+  --shadow-premium: 0 10px 30px rgba(20, 83, 45, 0.03);
+  --shadow-hover: 0 20px 40px rgba(20, 83, 45, 0.06);
+}
+
+/* 3. Theme: Modern and Sleek (Charcoal and Electric Blue) */
+.theme-modern {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --bg-card: #ffffff;
+  --border-card: #e4e4e7;
+  
+  --accent-black: #18181b; /* Charcoal */
+  --accent-black-hover: #09090b;
+  --accent-black-muted: rgba(24, 24, 27, 0.05);
+  
+  --accent-blue: #2563eb; /* Electric Blue */
+  --accent-teal: #06b6d4;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+
+  --text-primary: #09090b;
+  --text-grey: #52525b;
+  --text-muted: #71717a;
+  
+  --shadow-premium: 0 10px 30px rgba(24, 24, 27, 0.04);
+  --shadow-hover: 0 20px 40px rgba(24, 24, 27, 0.08);
+}
+
+/* 4. Theme: Balanced Professional (Teal and Sand) */
+.theme-balanced {
+  --bg-primary: #fdfcf7; /* Sand */
+  --bg-secondary: #f7ede2; /* Sand Beige */
+  --bg-card: #ffffff;
+  --border-card: #e6ccb2;
+  
+  --accent-black: #0d9488; /* Deep Teal */
+  --accent-black-hover: #115e59;
+  --accent-black-muted: rgba(13, 148, 136, 0.06);
+  
+  --accent-blue: #f97316; /* Coral Orange */
+  --accent-teal: #0d9488;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+
+  --text-primary: #115e59;
+  --text-grey: #0f766e;
+  --text-muted: #134e4a;
+  
+  --shadow-premium: 0 10px 30px rgba(13, 148, 136, 0.03);
+  --shadow-hover: 0 20px 40px rgba(13, 148, 136, 0.07);
 }
 
 * {
@@ -43,6 +137,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.02) 0%, transparent 40%),
+  background-image: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.01) 0%, transparent 40%),
                     radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.01) 0%, transparent 45%);
 }
 
@@ -85,6 +180,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .logo a {
@@ -93,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   color: var(--text-primary);
   text-decoration: none;
-  background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-grey) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
@@ -132,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-links a.active {
   border: 1px solid var(--border-card);
-  background: #ffffff;
+  background: var(--bg-card);
 }
 
 .logout-btn {
@@ -164,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 56px;
   line-height: 1.15;
   margin-bottom: 20px;
-  background: linear-gradient(to right, #0f172a, #475569, #0f172a);
+  background: linear-gradient(to right, var(--text-primary), var(--text-grey), var(--text-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -192,13 +288,13 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+  box-shadow: var(--shadow-premium);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-black-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(15, 23, 42, 0.25);
+  box-shadow: var(--shadow-hover);
 }
 
 .btn-secondary {
@@ -274,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   padding: 14px 16px;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border: 1px solid var(--border-card);
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -285,7 +381,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
   border-color: var(--accent-black);
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 0 0 3px var(--accent-black-muted);
 }
 
 .form-row {
@@ -385,7 +481,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .uploader-box:hover, .uploader-box.drag-active {
   border-color: var(--accent-black);
-  background: rgba(15, 23, 42, 0.02);
+  background: var(--accent-black-muted);
 }
 
 .uploader-icon {
@@ -587,7 +683,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   padding: 16px 24px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -681,7 +777,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-card.premium {
   border-color: var(--accent-black);
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.01) 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
   border-width: 2px;
 }
 
@@ -710,7 +806,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-card .price {
   font-size: 42px;
-  font-weight: 855;
+  font-weight: 800;
   margin: 16px 0;
   font-family: var(--font-heading);
   color: var(--text-primary);
@@ -953,7 +1049,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-content {
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 20px;
   width: 100%;
