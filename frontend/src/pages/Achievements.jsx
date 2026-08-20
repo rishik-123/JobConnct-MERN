@@ -211,7 +211,7 @@ export default function Achievements() {
                           fontWeight: "600",
                           marginTop: "8px",
                           display: "inline-flex",
-                          align-items: "center",
+                          alignItems: "center",
                           gap: "4px"
                         }}
                       >
