@@ -480,7 +480,7 @@ app.use("/uploads", express.static(uploadPath));
 const clientDistPath = path.join(__dirname, "../frontend/dist");
 app.use(express.static(clientDistPath));
 
-app.get("*", (req, res) => {
+app.get("*any", (req, res) => {
   const indexHtmlPath = path.join(clientDistPath, "index.html");
   if (fs.existsSync(indexHtmlPath)) {
     res.sendFile(indexHtmlPath);
