@@ -1,76 +1,95 @@
 import fs from 'fs';
 import path from 'path';
-import pg from 'pg';
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { User } from './models.js';
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const db = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/jobConnect";
 
 async function importData() {
-    if (!process.env.DATABASE_URL) {
-        console.log("No DATABASE_URL found. Skipping import.");
-        return;
-    }
-
     try {
-        await db.connect();
-        
-        // Wait for table to be created if not exists
-        await db.query(`
-            CREATE TABLE IF NOT EXISTS register (
-              id SERIAL PRIMARY KEY,
-              fname VARCHAR(255),
-              lname VARCHAR(255),
-              jobProfile VARCHAR(255),
-              contactnumber VARCHAR(255),
-              email VARCHAR(255) UNIQUE,
-              password VARCHAR(255)
-            );
-        `);
+        console.log("Connecting to MongoDB...");
+        await mongoose.connect(MONGODB_URI);
+        console.log("Connected to MongoDB successfully.");
 
-        // Resolve path to CSV (could be in current dir or parent dir depending on Render root setup)
+        // Seeding default admin
+        const adminEmail = "admin@jobconnect.com";
+        const adminExists = await User.findOne({ email: adminEmail });
+        if (!adminExists) {
+            const hashedAdminPassword = await bcrypt.hash("adminpassword", 10);
+            await User.create({
+                fname: "Platform",
+                lname: "Admin",
+                jobProfile: "Administrator",
+                contactnumber: "0000000000",
+                email: adminEmail,
+                password: hashedAdminPassword,
+                role: "admin",
+                skills: ["Management", "Moderation"]
+            });
+            console.log("Default Admin created: admin@jobconnect.com / adminpassword");
+        } else {
+            console.log("Admin user already exists.");
+        }
+
+        // Seeding CSV data
         let csvPath = path.join(__dirname, '../register database values.csv');
         if (!fs.existsSync(csvPath)) {
             csvPath = path.join(__dirname, 'register database values.csv');
         }
 
         if (!fs.existsSync(csvPath)) {
-            console.log("CSV not found. Skipping import.");
+            console.log("CSV file not found. Skipping import.");
+            mongoose.connection.close();
             process.exit(0);
         }
 
         const data = fs.readFileSync(csvPath, 'utf8');
         const lines = data.split('\n').filter(line => line.trim() !== '');
         
-        const check = await db.query('SELECT COUNT(*) FROM register');
-        if (parseInt(check.rows[0].count) > 0) {
-            console.log("Database already has data. Skipping import.");
-            process.exit(0);
-        }
-
-        console.log(`Importing ${lines.length - 1} rows...`);
+        console.log(`Checking CSV import data (${lines.length - 1} rows)...`);
         
-        // Skip header
+        // Skip header line
+        let importedCount = 0;
         for (let i = 1; i < lines.length; i++) {
-            // Regex to handle CSV splitting accurately
             const row = lines[i].match(/(?:\"([^\"]*)\"|([^,]+))/g);
             if (row && row.length >= 6) {
                 const cleanRow = row.map(s => s.replace(/^"|"$/g, '').trim());
-                await db.query(
-                    "INSERT INTO register (fname, lname, jobProfile, contactnumber, email, password) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (email) DO NOTHING",
-                    [cleanRow[0], cleanRow[1], cleanRow[2], cleanRow[3], cleanRow[4], cleanRow[5]]
-                );
+                const fname = cleanRow[0];
+                const lname = cleanRow[1];
+                const jobProfile = cleanRow[2];
+                const contactnumber = cleanRow[3];
+                const email = cleanRow[4];
+                const rawPassword = cleanRow[5];
+
+                const userExists = await User.findOne({ email });
+                if (!userExists) {
+                    const hashedPassword = await bcrypt.hash(rawPassword, 10);
+                    await User.create({
+                        fname,
+                        lname,
+                        jobProfile,
+                        contactnumber,
+                        email,
+                        password: hashedPassword,
+                        role: "user",
+                        skills: ["Web Development", "Software Engineering"] // default skills
+                    });
+                    importedCount++;
+                }
             }
         }
-        console.log("CSV Import complete!");
+        console.log(`CSV Import complete. Added ${importedCount} new users.`);
     } catch (err) {
         console.error("Import failed:", err);
     } finally {
-        await db.end();
+        mongoose.connection.close();
         process.exit(0);
     }
 }
