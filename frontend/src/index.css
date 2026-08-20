@@ -4,32 +4,31 @@
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 
-  /* Master Palette Allocation */
-  /* Dominant Background (60%): Warm Cream & Soft Slate Gray */
-  --bg-primary: #FAF6EE;         /* Overall background canvas */
-  --bg-secondary: #F4ECE0;       /* Section variation background */
-  --bg-card: #E4E8EE;            /* Soft Slate Gray card backing */
-  --border-card: rgba(10, 17, 40, 0.1);
+  /* Vibrant Midnight Blue Theme Palette (Deep Space Dark Mode) */
+  --bg-primary: #060913;         /* Deep Space background */
+  --bg-secondary: #0A0F1F;       /* Section variation background */
+  --bg-card: rgba(13, 21, 38, 0.8); /* Deep Navy Translucent Glass */
+  --border-card: rgba(0, 242, 254, 0.15); /* Glowing electric cyan border */
 
-  /* Structure & Text Core (30%): Deep Navy Blue & Charcoal */
-  --text-primary: #0A1128;       /* Deep Navy Blue Midnight */
-  --text-grey: #1C2541;          /* Charcoal grey */
-  --text-muted: #5C6B73;         /* Muted Charcoal */
-  --accent-black: #0A1128;       /* Navy Midnight structural base */
-
-  /* Actionable Accents (10%): Electric Blue, Teal, Coral & Soft Gold */
-  --accent-electric-blue: #2563EB; /* Exclusively for Search/Filter */
-  --accent-teal: #0D9488;          /* For skill badges & verified employer checkmarks */
-  --accent-coral: #FF6F61;         /* Strictly for highest-value "Apply Now" & submits */
-  --accent-gold: #D97706;          /* For highlighting premium/pro features */
+  /* Accents */
+  --accent-cyan: #00F2FE;        /* Electric Cyan - primary highlight */
+  --accent-blue: #00B7FF;        /* High-energy Sky Blue */
+  --accent-coral: #FF2D55;       /* Bright Coral Red - Apply Now & Submit actions */
+  --accent-purple: #7C3AED;      /* High-contrast purple highlight */
   
-  --accent-red: #DC2626;
-  --accent-green: #16A34A;
+  --accent-red: #EF4444;
+  --accent-green: #10B981;
+
+  /* Typography */
+  --text-primary: #E2F1FF;       /* Glowing ice blue */
+  --text-grey: #8A99AD;          /* Light Slate grey */
+  --text-muted: #5C6B73;         /* Muted Charcoal */
+  --accent-black: #060913;
 
   /* Transitions & Shadows */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-premium: 0 10px 30px rgba(10, 17, 40, 0.04), 0 1px 3px rgba(10, 17, 40, 0.02);
-  --shadow-hover: 0 20px 40px rgba(10, 17, 40, 0.08), 0 1px 3px rgba(10, 17, 40, 0.04);
+  --shadow-premium: 0 10px 30px rgba(0, 11, 28, 0.3), 0 1px 3px rgba(0, 242, 254, 0.05);
+  --shadow-hover: 0 20px 40px rgba(0, 242, 254, 0.15), 0 1px 3px rgba(0, 242, 254, 0.08);
 }
 
 * {
@@ -59,8 +58,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.02) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.02) 0%, transparent 45%);
+  background-image: radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.06) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 45, 85, 0.05) 0%, transparent 45%);
   background-color: var(--bg-primary);
 }
 
@@ -79,9 +78,9 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 80px;
-  background: rgba(250, 246, 238, 0.85); /* Warm Cream translucent */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(6, 9, 19, 0.85); /* Dark translucent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-card);
   z-index: 1000;
   display: flex;
@@ -96,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   color: var(--text-primary);
   text-decoration: none;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-grey) 100%);
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
@@ -129,18 +128,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
+  color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.05);
 }
 
 .nav-links a.active {
-  border: 1px solid var(--border-card);
-  background: var(--bg-primary);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  background: rgba(0, 242, 254, 0.03);
 }
 
 .logout-btn {
   background: transparent;
-  border: 1px solid rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.2);
   color: var(--accent-red);
   cursor: pointer;
   font-size: 14px;
@@ -151,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logout-btn:hover {
-  background: rgba(220, 38, 38, 0.05);
+  background: rgba(239, 68, 68, 0.05);
 }
 
 /* ---------------- HERO / WELCOME ---------------- */
@@ -166,7 +165,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 56px;
   line-height: 1.15;
   margin-bottom: 20px;
-  background: linear-gradient(to right, var(--text-primary), var(--text-grey), var(--text-primary));
+  background: linear-gradient(to right, #ffffff, var(--accent-cyan), var(--accent-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -195,13 +194,13 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 20px rgba(255, 111, 97, 0.2);
+  box-shadow: 0 4px 20px rgba(255, 45, 85, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: #ff5a4a;
+  background-color: #ff4569;
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(255, 111, 97, 0.3);
+  box-shadow: 0 6px 25px rgba(255, 45, 85, 0.5);
 }
 
 .btn-secondary {
@@ -222,9 +221,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-secondary);
+  background-color: rgba(0, 242, 254, 0.05);
   transform: translateY(-2px);
-  border-color: var(--text-muted);
+  border-color: var(--accent-cyan);
 }
 
 /* ---------------- FORMS (LOGIN / REGISTER) ---------------- */
@@ -237,7 +236,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Deep Navy Translucent Glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 40px;
@@ -276,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   padding: 14px 16px;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: rgba(10, 15, 30, 0.6);
   border: 1px solid var(--border-card);
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -286,8 +287,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  border-color: var(--accent-electric-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
 }
 
 .form-row {
@@ -307,7 +308,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .auth-redirect a {
-  color: var(--accent-electric-blue);
+  color: var(--accent-cyan);
   text-decoration: none;
   font-weight: 600;
 }
@@ -348,13 +349,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  border-color: var(--text-grey);
+  border-color: var(--accent-cyan);
   box-shadow: var(--shadow-hover);
 }
 
 .card-icon {
-  background: rgba(10, 17, 40, 0.05);
-  color: var(--text-primary);
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
   width: 52px;
   height: 52px;
   border-radius: 12px;
@@ -386,12 +387,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .uploader-box:hover, .uploader-box.drag-active {
-  border-color: var(--accent-coral);
-  background: rgba(255, 111, 97, 0.02);
+  border-color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.02);
 }
 
 .uploader-icon {
-  color: var(--accent-coral);
+  color: var(--accent-cyan);
   margin-bottom: 16px;
 }
 
@@ -407,9 +408,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .file-selected-alert {
-  background: rgba(22, 163, 74, 0.08);
-  border: 1px solid rgba(22, 163, 74, 0.2);
-  color: #1b5e20;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10B981;
   padding: 12px;
   border-radius: 10px;
   margin-top: 16px;
@@ -433,8 +434,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-tag {
-  background: rgba(13, 148, 136, 0.1); /* Teal transparent */
-  color: var(--accent-teal);
+  background: rgba(0, 242, 254, 0.08); /* Teal/Cyan transparent */
+  color: var(--accent-cyan);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -442,13 +443,13 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid rgba(13, 148, 136, 0.2);
+  border: 1px solid rgba(0, 242, 254, 0.2);
 }
 
 .skill-tag button {
   background: transparent;
   border: none;
-  color: var(--accent-teal);
+  color: var(--accent-cyan);
   cursor: pointer;
   font-size: 14px;
   display: flex;
@@ -456,10 +457,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ---------------- SEARCH / FILTER STYLING ---------------- */
-/* Styled with Electric Blue exclusively */
+/* Styled with Electric Blue/Cyan exclusively */
 .search-input:focus {
-  border-color: var(--accent-electric-blue) !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15) !important;
 }
 
 /* ---------------- PEERS / NETWORK GRID ---------------- */
@@ -485,7 +486,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .peer-card {
-  background: var(--bg-card); /* Soft Slate Gray backing */
+  background: var(--bg-card); /* Translucent glass */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -503,12 +504,12 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--text-primary), var(--accent-teal));
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-coral));
 }
 
 .peer-card:hover {
   transform: translateY(-6px);
-  border-color: var(--text-primary);
+  border-color: var(--accent-cyan);
   box-shadow: var(--shadow-hover);
 }
 
@@ -517,7 +518,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 90px;
   border-radius: 50%;
   margin: 0 auto 20px auto;
-  border: 3px solid var(--text-primary);
+  border: 3px solid var(--accent-cyan);
   object-fit: cover;
   background-color: var(--bg-primary);
   display: flex;
@@ -540,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .peer-email {
-  color: var(--text-muted);
+  color: var(--text-grey);
   font-size: 13px;
   margin-bottom: 20px;
 }
@@ -554,9 +555,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .peer-skills .tag {
-  background: rgba(13, 148, 136, 0.08); /* Teal tag */
-  border: 1px solid rgba(13, 148, 136, 0.2);
-  color: var(--accent-teal);
+  background: rgba(0, 242, 254, 0.08); /* Teal/Cyan tags */
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  color: var(--accent-cyan);
   padding: 4px 10px;
   border-radius: 10px;
   font-size: 11px;
@@ -565,7 +566,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-connect {
   background: var(--text-primary);
-  color: #ffffff;
+  color: var(--bg-primary);
   font-weight: 700;
   border: none;
   border-radius: 10px;
@@ -577,14 +578,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-connect:hover:not(:disabled) {
-  background: var(--text-grey);
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
   transform: scale(1.02);
 }
 
 .btn-connect:disabled {
   background: var(--bg-secondary);
   border: 1px solid var(--border-card);
-  color: var(--text-muted);
+  color: var(--text-grey);
   cursor: not-allowed;
 }
 
@@ -593,12 +595,12 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: var(--text-primary);
-  border: 1px solid var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
   color: #ffffff;
   padding: 16px 24px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(10, 17, 40, 0.15);
+  box-shadow: var(--shadow-hover);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -621,7 +623,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hackathon-card {
-  background: var(--bg-card); /* Soft Slate Gray backing */
+  background: var(--bg-card); /* Translucent glass */
   border: 1px solid var(--border-card);
   border-radius: 16px;
   padding: 24px 30px;
@@ -634,7 +636,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hackathon-card:hover {
-  border-color: var(--text-grey);
+  border-color: var(--accent-cyan);
   transform: translateX(4px);
 }
 
@@ -662,7 +664,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
-/* ---------------- STRIPE PLANS & SOFT GOLD ACCENTS ---------------- */
+/* ---------------- STRIPE PLANS & GLOWING ACCENTS ---------------- */
 .pricing-section {
   padding: 60px 0;
   text-align: center;
@@ -677,7 +679,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card {
-  background: var(--bg-card); /* Soft Slate Gray card backing */
+  background: var(--bg-card); /* Translucent glass backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 40px;
@@ -691,9 +693,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card.premium {
-  border-color: var(--accent-gold); /* Soft Gold highlight */
+  border-color: var(--accent-cyan); /* Glowing cyan highlight */
   border-width: 2px;
-  background: linear-gradient(180deg, rgba(217, 119, 6, 0.02) 0%, var(--bg-card) 100%);
+  background: linear-gradient(180deg, rgba(0, 242, 254, 0.05) 0%, rgba(13, 21, 38, 0.8) 100%);
 }
 
 .pricing-card:hover {
@@ -705,14 +707,14 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -12px;
   left: 24px;
-  background: var(--accent-gold); /* Soft Gold badge */
-  color: #ffffff;
+  background: var(--accent-cyan); /* Electric Cyan badge */
+  color: var(--bg-primary);
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
 }
 
 .pricing-card h2 {
@@ -750,7 +752,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-features li svg {
-  color: var(--accent-coral);
+  color: var(--accent-cyan);
 }
 
 /* ---------------- USER DASHBOARD ---------------- */
@@ -761,7 +763,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .profile-sidebar {
-  background: var(--bg-card); /* Soft Slate Gray backing */
+  background: var(--bg-card); /* Glass backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -785,13 +787,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 100px;
   border-radius: 50%;
   margin: 0 auto 16px auto;
-  border: 3px solid var(--text-primary);
+  border: 3px solid var(--accent-cyan);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   background: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--accent-cyan);
 }
 
 .profile-sidebar h2 {
@@ -823,7 +825,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-card {
-  background: var(--bg-card); /* Soft Slate Gray backing */
+  background: var(--bg-card); /* Glass backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -842,7 +844,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Job Recommendations */
 .rec-card {
-  background: var(--bg-primary);
+  background: rgba(6, 9, 19, 0.5);
   border: 1px solid var(--border-card);
   border-radius: 12px;
   padding: 20px;
@@ -865,7 +867,7 @@ h1, h2, h3, h4, h5, h6 {
 .rec-company {
   font-weight: 700;
   font-size: 14px;
-  color: var(--accent-electric-blue);
+  color: var(--accent-cyan);
 }
 
 .rec-card p {
@@ -895,13 +897,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tab-btn:hover, .tab-btn.active {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
+  color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.05);
 }
 
 .tab-btn.active {
-  color: var(--text-primary);
-  box-shadow: inset 0 -2px 0 var(--text-primary);
+  color: var(--accent-cyan);
+  box-shadow: inset 0 -2px 0 var(--accent-cyan);
 }
 
 .admin-users-list {
@@ -911,7 +913,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .admin-user-card {
-  background: var(--bg-card); /* Soft Slate Gray backing */
+  background: var(--bg-card); /* Glass backing */
   border: 1px solid var(--border-card);
   border-radius: 16px;
   padding: 20px 24px;
@@ -933,7 +935,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .match-opportunities-btn {
   background: var(--text-primary);
-  color: #ffffff;
+  color: var(--bg-primary);
   font-weight: 700;
   padding: 10px 18px;
   border-radius: 10px;
@@ -946,7 +948,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .match-opportunities-btn:hover {
-  background: var(--text-grey);
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
 }
 
 /* Match Modal */
@@ -956,7 +959,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 17, 40, 0.4);
+  background: rgba(6, 9, 19, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -965,13 +968,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-content {
-  background: #ffffff;
+  background: var(--bg-secondary);
   border: 1px solid var(--border-card);
   border-radius: 20px;
   width: 100%;
   max-width: 550px;
   padding: 32px;
-  box-shadow: 0 20px 50px rgba(10, 17, 40, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header {
@@ -990,9 +993,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Match suggestions in Modal */
 .compatibility-pill {
-  background: rgba(22, 163, 74, 0.08);
+  background: rgba(16, 185, 129, 0.08);
   color: var(--accent-green);
-  border: 1px solid rgba(22, 163, 74, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
