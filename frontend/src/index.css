@@ -1,127 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-/* Default fallback theme (Modern & Sleek) + Fonts */
 :root {
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Master Palette Allocation */
+  /* Dominant Background (60%): Warm Cream & Soft Slate Gray */
+  --bg-primary: #FAF6EE;         /* Overall background canvas */
+  --bg-secondary: #F4ECE0;       /* Section variation background */
+  --bg-card: #E4E8EE;            /* Soft Slate Gray card backing */
+  --border-card: rgba(10, 17, 40, 0.1);
+
+  /* Structure & Text Core (30%): Deep Navy Blue & Charcoal */
+  --text-primary: #0A1128;       /* Deep Navy Blue Midnight */
+  --text-grey: #1C2541;          /* Charcoal grey */
+  --text-muted: #5C6B73;         /* Muted Charcoal */
+  --accent-black: #0A1128;       /* Navy Midnight structural base */
+
+  /* Actionable Accents (10%): Electric Blue, Teal, Coral & Soft Gold */
+  --accent-electric-blue: #2563EB; /* Exclusively for Search/Filter */
+  --accent-teal: #0D9488;          /* For skill badges & verified employer checkmarks */
+  --accent-coral: #FF6F61;         /* Strictly for highest-value "Apply Now" & submits */
+  --accent-gold: #D97706;          /* For highlighting premium/pro features */
+  
+  --accent-red: #DC2626;
+  --accent-green: #16A34A;
+
+  /* Transitions & Shadows */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  --bg-primary: #ffffff;
-  --bg-secondary: #f4f4f5;
-  --bg-card: #ffffff;
-  --border-card: #e4e4e7;
-  
-  --accent-black: #18181b; 
-  --accent-black-hover: #09090b;
-  --accent-black-muted: rgba(24, 24, 27, 0.05);
-  
-  --accent-blue: #2563eb; 
-  --accent-teal: #06b6d4;
-  --accent-red: #ef4444;
-  --accent-green: #10b981;
-
-  --text-primary: #09090b;
-  --text-grey: #52525b;
-  --text-muted: #71717a;
-  
-  --shadow-premium: 0 10px 30px rgba(24, 24, 27, 0.04);
-  --shadow-hover: 0 20px 40px rgba(24, 24, 27, 0.08);
-}
-
-/* 1. Theme: Classic Trust (Navy Blue and Cool Gray) */
-.theme-classic {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-card: #ffffff;
-  --border-card: #cbd5e1;
-  
-  --accent-black: #1e3a8a; /* Deep Navy Blue */
-  --accent-black-hover: #172554;
-  --accent-black-muted: rgba(30, 58, 138, 0.07);
-  
-  --accent-blue: #0284c7; /* Bright Sky Blue */
-  --accent-teal: #0f766e;
-  --accent-red: #ef4444;
-  --accent-green: #10b981;
-
-  --text-primary: #0f172a;
-  --text-grey: #475569; /* Slate Gray */
-  --text-muted: #64748b;
-  
-  --shadow-premium: 0 10px 30px rgba(30, 58, 138, 0.03);
-  --shadow-hover: 0 20px 40px rgba(30, 58, 138, 0.07);
-}
-
-/* 2. Theme: Growth and Opportunity (Forest Green and Cream) */
-.theme-growth {
-  --bg-primary: #fefcf9; /* Cream */
-  --bg-secondary: #f5ebd6; /* Off-White / Light Cream */
-  --bg-card: #ffffff;
-  --border-card: #e6dcbe;
-  
-  --accent-black: #14532d; /* Forest Green */
-  --accent-black-hover: #052e16;
-  --accent-black-muted: rgba(20, 83, 45, 0.06);
-  
-  --accent-blue: #d4af37; /* Soft Gold */
-  --accent-teal: #166534;
-  --accent-red: #ef4444;
-  --accent-green: #15803d;
-
-  --text-primary: #14532d;
-  --text-grey: #166534;
-  --text-muted: #15803d;
-  
-  --shadow-premium: 0 10px 30px rgba(20, 83, 45, 0.03);
-  --shadow-hover: 0 20px 40px rgba(20, 83, 45, 0.06);
-}
-
-/* 3. Theme: Modern and Sleek (Charcoal and Electric Blue) */
-.theme-modern {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f4f4f5;
-  --bg-card: #ffffff;
-  --border-card: #e4e4e7;
-  
-  --accent-black: #18181b; /* Charcoal */
-  --accent-black-hover: #09090b;
-  --accent-black-muted: rgba(24, 24, 27, 0.05);
-  
-  --accent-blue: #2563eb; /* Electric Blue */
-  --accent-teal: #06b6d4;
-  --accent-red: #ef4444;
-  --accent-green: #10b981;
-
-  --text-primary: #09090b;
-  --text-grey: #52525b;
-  --text-muted: #71717a;
-  
-  --shadow-premium: 0 10px 30px rgba(24, 24, 27, 0.04);
-  --shadow-hover: 0 20px 40px rgba(24, 24, 27, 0.08);
-}
-
-/* 4. Theme: Balanced Professional (Teal and Sand) */
-.theme-balanced {
-  --bg-primary: #fdfcf7; /* Sand */
-  --bg-secondary: #f7ede2; /* Sand Beige */
-  --bg-card: #ffffff;
-  --border-card: #e6ccb2;
-  
-  --accent-black: #0d9488; /* Deep Teal */
-  --accent-black-hover: #115e59;
-  --accent-black-muted: rgba(13, 148, 136, 0.06);
-  
-  --accent-blue: #f97316; /* Coral Orange */
-  --accent-teal: #0d9488;
-  --accent-red: #ef4444;
-  --accent-green: #10b981;
-
-  --text-primary: #115e59;
-  --text-grey: #0f766e;
-  --text-muted: #134e4a;
-  
-  --shadow-premium: 0 10px 30px rgba(13, 148, 136, 0.03);
-  --shadow-hover: 0 20px 40px rgba(13, 148, 136, 0.07);
+  --shadow-premium: 0 10px 30px rgba(10, 17, 40, 0.04), 0 1px 3px rgba(10, 17, 40, 0.02);
+  --shadow-hover: 0 20px 40px rgba(10, 17, 40, 0.08), 0 1px 3px rgba(10, 17, 40, 0.04);
 }
 
 * {
@@ -137,7 +45,6 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -152,8 +59,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.01) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.01) 0%, transparent 45%);
+  background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.02) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.02) 0%, transparent 45%);
+  background-color: var(--bg-primary);
 }
 
 .main-content {
@@ -171,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 80px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 246, 238, 0.85); /* Warm Cream translucent */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-card);
@@ -180,7 +88,6 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .logo a {
@@ -228,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-links a.active {
   border: 1px solid var(--border-card);
-  background: var(--bg-card);
+  background: var(--bg-primary);
 }
 
 .logout-btn {
@@ -245,7 +152,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .logout-btn:hover {
   background: rgba(220, 38, 38, 0.05);
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.05);
 }
 
 /* ---------------- HERO / WELCOME ---------------- */
@@ -273,12 +179,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ---------------- BUTTONS ---------------- */
+/* btn-primary represents the highest-value action (e.g. Apply Now, Submits) -> styled with Coral Orange */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--accent-black);
+  background-color: var(--accent-coral);
   color: #ffffff;
   font-weight: 700;
   font-size: 15px;
@@ -288,13 +195,13 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-smooth);
-  box-shadow: var(--shadow-premium);
+  box-shadow: 0 4px 20px rgba(255, 111, 97, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-black-hover);
+  background-color: #ff5a4a;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 6px 25px rgba(255, 111, 97, 0.3);
 }
 
 .btn-secondary {
@@ -343,7 +250,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 32px;
   margin-bottom: 8px;
   text-align: center;
-  color: var(--text-primary);
 }
 
 .glass-card .subtitle {
@@ -370,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   padding: 14px 16px;
   border-radius: 10px;
-  background-color: var(--bg-card);
+  background-color: #ffffff;
   border: 1px solid var(--border-card);
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -380,8 +286,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  border-color: var(--accent-black);
-  box-shadow: 0 0 0 3px var(--accent-black-muted);
+  border-color: var(--accent-electric-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .form-row {
@@ -401,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .auth-redirect a {
-  color: var(--accent-blue);
+  color: var(--accent-electric-blue);
   text-decoration: none;
   font-weight: 600;
 }
@@ -428,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 16px;
   padding: 30px;
@@ -442,13 +348,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  border-color: var(--accent-black);
+  border-color: var(--text-grey);
   box-shadow: var(--shadow-hover);
 }
 
 .card-icon {
-  background: var(--accent-black-muted);
-  color: var(--accent-black);
+  background: rgba(10, 17, 40, 0.05);
+  color: var(--text-primary);
   width: 52px;
   height: 52px;
   border-radius: 12px;
@@ -480,12 +386,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .uploader-box:hover, .uploader-box.drag-active {
-  border-color: var(--accent-black);
-  background: var(--accent-black-muted);
+  border-color: var(--accent-coral);
+  background: rgba(255, 111, 97, 0.02);
 }
 
 .uploader-icon {
-  color: var(--accent-black);
+  color: var(--accent-coral);
   margin-bottom: 16px;
 }
 
@@ -514,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
 }
 
-/* ---------------- SKILLS INPUT ---------------- */
+/* ---------------- SKILLS INPUT & TAGS ---------------- */
 .skills-input-wrapper {
   margin-top: 16px;
 }
@@ -527,8 +433,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-tag {
-  background: var(--accent-black-muted);
-  color: var(--accent-black);
+  background: rgba(13, 148, 136, 0.1); /* Teal transparent */
+  color: var(--accent-teal);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -536,16 +442,24 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  border: 1px solid rgba(13, 148, 136, 0.2);
 }
 
 .skill-tag button {
   background: transparent;
   border: none;
-  color: var(--accent-black);
+  color: var(--accent-teal);
   cursor: pointer;
   font-size: 14px;
   display: flex;
   align-items: center;
+}
+
+/* ---------------- SEARCH / FILTER STYLING ---------------- */
+/* Styled with Electric Blue exclusively */
+.search-input:focus {
+  border-color: var(--accent-electric-blue) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
 }
 
 /* ---------------- PEERS / NETWORK GRID ---------------- */
@@ -571,7 +485,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .peer-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -589,12 +503,12 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-black), var(--accent-teal));
+  background: linear-gradient(90deg, var(--text-primary), var(--accent-teal));
 }
 
 .peer-card:hover {
   transform: translateY(-6px);
-  border-color: var(--accent-black);
+  border-color: var(--text-primary);
   box-shadow: var(--shadow-hover);
 }
 
@@ -603,29 +517,30 @@ h1, h2, h3, h4, h5, h6 {
   height: 90px;
   border-radius: 50%;
   margin: 0 auto 20px auto;
-  border: 3px solid var(--accent-black);
+  border: 3px solid var(--text-primary);
   object-fit: cover;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-black);
+  color: var(--text-primary);
 }
 
 .peer-card h3 {
   font-size: 20px;
   margin-bottom: 4px;
+  color: var(--text-primary);
 }
 
 .peer-title {
-  color: var(--text-primary);
+  color: var(--text-grey);
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .peer-email {
-  color: var(--text-grey);
+  color: var(--text-muted);
   font-size: 13px;
   margin-bottom: 20px;
 }
@@ -639,17 +554,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .peer-skills .tag {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-card);
-  color: var(--text-grey);
+  background: rgba(13, 148, 136, 0.08); /* Teal tag */
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  color: var(--accent-teal);
   padding: 4px 10px;
   border-radius: 10px;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .btn-connect {
-  background: var(--accent-black);
+  background: var(--text-primary);
   color: #ffffff;
   font-weight: 700;
   border: none;
@@ -662,7 +577,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-connect:hover:not(:disabled) {
-  background: var(--accent-black-hover);
+  background: var(--text-grey);
   transform: scale(1.02);
 }
 
@@ -678,12 +593,12 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: var(--accent-black);
-  border: 1px solid var(--accent-black);
+  background: var(--text-primary);
+  border: 1px solid var(--text-primary);
   color: #ffffff;
   padding: 16px 24px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(10, 17, 40, 0.15);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -706,7 +621,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hackathon-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 16px;
   padding: 24px 30px;
@@ -719,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hackathon-card:hover {
-  border-color: var(--accent-black);
+  border-color: var(--text-grey);
   transform: translateX(4px);
 }
 
@@ -747,7 +662,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
-/* ---------------- STRIPE PLANS ---------------- */
+/* ---------------- STRIPE PLANS & SOFT GOLD ACCENTS ---------------- */
 .pricing-section {
   padding: 60px 0;
   text-align: center;
@@ -762,7 +677,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray card backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 40px;
@@ -776,9 +691,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card.premium {
-  border-color: var(--accent-black);
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+  border-color: var(--accent-gold); /* Soft Gold highlight */
   border-width: 2px;
+  background: linear-gradient(180deg, rgba(217, 119, 6, 0.02) 0%, var(--bg-card) 100%);
 }
 
 .pricing-card:hover {
@@ -790,13 +705,14 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: -12px;
   left: 24px;
-  background: var(--accent-black);
+  background: var(--accent-gold); /* Soft Gold badge */
   color: #ffffff;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
 }
 
 .pricing-card h2 {
@@ -834,7 +750,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-features li svg {
-  color: var(--accent-black);
+  color: var(--accent-coral);
 }
 
 /* ---------------- USER DASHBOARD ---------------- */
@@ -845,7 +761,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .profile-sidebar {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -869,13 +785,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 100px;
   border-radius: 50%;
   margin: 0 auto 16px auto;
-  border: 3px solid var(--accent-black);
+  border: 3px solid var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
-  background: var(--bg-secondary);
-  color: var(--accent-black);
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .profile-sidebar h2 {
@@ -907,7 +823,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 20px;
   padding: 30px;
@@ -926,7 +842,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Job Recommendations */
 .rec-card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-card);
   border-radius: 12px;
   padding: 20px;
@@ -949,7 +865,7 @@ h1, h2, h3, h4, h5, h6 {
 .rec-company {
   font-weight: 700;
   font-size: 14px;
-  color: var(--accent-blue);
+  color: var(--accent-electric-blue);
 }
 
 .rec-card p {
@@ -984,8 +900,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tab-btn.active {
-  color: var(--accent-black);
-  box-shadow: inset 0 -2px 0 var(--accent-black);
+  color: var(--text-primary);
+  box-shadow: inset 0 -2px 0 var(--text-primary);
 }
 
 .admin-users-list {
@@ -995,7 +911,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .admin-user-card {
-  background: var(--bg-card);
+  background: var(--bg-card); /* Soft Slate Gray backing */
   border: 1px solid var(--border-card);
   border-radius: 16px;
   padding: 20px 24px;
@@ -1016,7 +932,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .match-opportunities-btn {
-  background: var(--accent-black);
+  background: var(--text-primary);
   color: #ffffff;
   font-weight: 700;
   padding: 10px 18px;
@@ -1030,7 +946,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .match-opportunities-btn:hover {
-  background: var(--accent-black-hover);
+  background: var(--text-grey);
 }
 
 /* Match Modal */
@@ -1040,7 +956,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(10, 17, 40, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1049,13 +965,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-content {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-card);
   border-radius: 20px;
   width: 100%;
   max-width: 550px;
   padding: 32px;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 20px 50px rgba(10, 17, 40, 0.15);
 }
 
 .modal-header {
