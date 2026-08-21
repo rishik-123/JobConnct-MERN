@@ -19,7 +19,7 @@ dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_mock");
 const JWT_SECRET = process.env.JWT_SECRET || "jobconnect-secret-key-12345";
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/jobConnect";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://rishikjariwala54_db_user:QEbRCxRxXRusM1yt@cluster0.mjhqyq0.mongodb.net/jobConnect?retryWrites=true&w=majority";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -33,16 +33,29 @@ if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
 }
 
-// Connect to MongoDB
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log("Database connected via Mongoose!"))
-  .catch(err => console.error("MongoDB Connection Error:", err));
+// Connect to MongoDB Atlas
+mongoose.connect(MONGODB_URI, {
+  serverSelectionTimeoutMS: 5000
+})
+  .then(() => console.log("Database connected to MongoDB Atlas via Mongoose!"))
+  .catch(err => console.error("MongoDB Atlas Connection Error:", err));
 
 // ---------------- MIDDLEWARE & SECURITY ----------------
 app.use(helmet({
   contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: false
 }));
+
+// DB Connection Check Middleware
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/") && mongoose.connection.readyState !== 1) {
+    console.error("Database connection not ready. Current readyState:", mongoose.connection.readyState);
+    return res.status(503).json({
+      error: "Database is connecting or unreachable. Please ensure 0.0.0.0/0 is added to MongoDB Atlas Network Access whitelist and MONGODB_URI is set on Render."
+    });
+  }
+  next();
+});
 
 // Rate Limiting to prevent brute force / DDoS
 const limiter = rateLimit({

@@ -2,9 +2,11 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
-export const BACKEND_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-  ? "http://localhost:3000"
-  : (window.location.hostname.includes("onrender.com") ? window.location.origin : "https://jobconnct-mern.onrender.com");
+export const BACKEND_URL = import.meta.env.VITE_API_URL || (
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:3000"
+    : "https://jobconnct-mern.onrender.com"
+);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

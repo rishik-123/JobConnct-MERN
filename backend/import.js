@@ -10,7 +10,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/jobConnect";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://rishikjariwala54_db_user:QEbRCxRxXRusM1yt@cluster0.mjhqyq0.mongodb.net/jobConnect?retryWrites=true&w=majority";
 
 async function importData() {
     try {

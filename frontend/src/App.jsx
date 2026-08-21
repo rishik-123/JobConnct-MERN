@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "./context/AuthContext.jsx";
 
-// Components
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import AntigravityCanvas from "./components/AntigravityCanvas.jsx";
 
 // Pages
 import Home from "./pages/Home.jsx";
@@ -33,6 +33,7 @@ function AdminRoute({ children }) {
 export default function App() {
   return (
     <div className="app-container">
+      <AntigravityCanvas />
       <Navbar />
       <main className="main-content">
         <Routes>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext, BACKEND_URL } from "../context/AuthContext";
-import { Trophy, FileText, Share2, Award, Check } from "lucide-react";
+import { Trophy, FileText, Share2, Award, Check, Sparkles, ArrowRight, Zap } from "lucide-react";
 
 export default function Home() {
   const { token, user } = useContext(AuthContext);
@@ -38,59 +38,62 @@ export default function Home() {
   return (
     <div className="home-page">
       <div className="hero">
-        <h1>Welcome to JobBoard Pro</h1>
-        <p>Your Ultimate Guide to All Job-Related Opportunities, Networking, and Placement Solutions</p>
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+        <div className="hero-badge">
+          <Sparkles size={14} /> Zero-G Career Elevation Platform
+        </div>
+        <h1>Welcome to JobConnect Pro</h1>
+        <p>Your Ultimate Guide to High-Impact Job Opportunities, Technical Networking, and Placement Acceleration</p>
+        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <Link to="/network" className="btn-primary">
-            <Share2 size={18} /> Network with Peers
+            <Share2 size={16} /> Network with Peers <ArrowRight size={16} />
           </Link>
           <Link to="/upload-resume" className="btn-secondary">
-            <FileText size={18} /> Upload Resume
+            <FileText size={16} /> Upload Resume
           </Link>
         </div>
       </div>
 
-      <div className="services-section">
-        <h2 className="section-title">Why Choose Us?</h2>
+      <div className="services-section" style={{ marginTop: "40px" }}>
+        <h2 className="section-title">Why Choose JobConnect?</h2>
         <div className="grid-cards">
           <div className="feature-card">
             <div className="card-icon">
-              <Trophy size={26} />
+              <Trophy size={24} />
             </div>
             <h3>Guaranteed Placements</h3>
-            <p>Connect directly with top recruiters and MNCs hiring from our network.</p>
+            <p>Connect directly with top recruiters, hyper-growth startups, and MNCs hiring from our network.</p>
           </div>
 
           <div className="feature-card">
             <div className="card-icon">
-              <FileText size={26} />
+              <FileText size={24} />
             </div>
             <h3>Resume Visibility</h3>
-            <p>Upload your resume and get noticed by hiring managers with customized matching.</p>
+            <p>Upload your resume and get noticed by engineering leaders with algorithmic skill matching.</p>
           </div>
 
           <div className="feature-card">
             <div className="card-icon">
-              <Share2 size={26} />
+              <Share2 size={24} />
             </div>
             <h3>Peer Connections</h3>
-            <p>Search, find, and connect with other students and tech professionals instantly.</p>
+            <p>Search, discover, and build high-value connections with developers and tech professionals instantly.</p>
           </div>
 
           <div className="feature-card">
             <div className="card-icon">
-              <Award size={26} />
+              <Award size={24} />
             </div>
             <h3>Hackathons & Awards</h3>
-            <p>Apply to national hackathons and showcase certificates directly on your profile.</p>
+            <p>Participate in flagship national hackathons and showcase verified achievements on your profile.</p>
           </div>
         </div>
       </div>
 
       <div className="pricing-section">
-        <h2 className="section-title">Upgrade to Pro Version</h2>
-        <p style={{ color: "var(--text-grey)", marginBottom: "40px" }}>
-          Unlock premium tools, custom matches, and take your career growth to the next level.
+        <h2 className="section-title">Upgrade to Pro</h2>
+        <p style={{ color: "var(--text-grey)", marginBottom: "48px", textAlign: "center" }}>
+          Unlock premium tools, custom job matches, and supercharge your technical trajectory.
         </p>
 
         <div className="plans-container">
@@ -102,13 +105,13 @@ export default function Home() {
             </div>
             <ul className="pricing-features">
               <li><Check size={16} /> Unlimited Resume Uploads</li>
-              <li><Check size={16} /> Premium Networking Tools</li>
-              <li><Check size={16} /> Highlighted Profile Tag</li>
-              <li><Check size={16} /> Unlimited Achievements Posts</li>
+              <li><Check size={16} /> Advanced Peer Networking</li>
+              <li><Check size={16} /> Verified Profile Tag</li>
+              <li><Check size={16} /> Unlimited Achievement Posts</li>
               <li><Check size={16} /> Exclusive Hackathon Access</li>
             </ul>
-            <button onClick={() => handleSubscribe("pro")} className="btn-primary" style={{ width: "100%" }}>
-              Upgrade Now ⭐
+            <button onClick={() => handleSubscribe("pro")} className="btn-secondary" style={{ width: "100%" }}>
+              Upgrade Now <Zap size={16} />
             </button>
           </div>
 
@@ -122,44 +125,62 @@ export default function Home() {
             <ul className="pricing-features">
               <li><Check size={16} /> Everything in Pro Plan</li>
               <li><Check size={16} /> Early Feature Access</li>
-              <li><Check size={16} /> AI Resume Review</li>
-              <li><Check size={16} /> Career Mentorship Sessions</li>
+              <li><Check size={16} /> Automated AI Resume Review</li>
+              <li><Check size={16} /> 1-on-1 Career Mentorship</li>
             </ul>
             <button onClick={() => handleSubscribe("premium")} className="btn-primary" style={{ width: "100%" }}>
-              Go Premium ✨
+              Go Premium <Sparkles size={16} />
             </button>
           </div>
         </div>
       </div>
 
-      <div style={{ marginTop: "80px" }}>
-        <h2 className="section-title">Success Reviews</h2>
+      <div style={{ marginTop: "100px" }}>
+        <h2 className="section-title">Success Stories</h2>
         <div className="grid-cards">
-          <div className="feature-card" style={{ padding: "24px" }}>
-            <p style={{ fontStyle: "italic", color: "var(--text-grey)" }}>
-              "JobBoard Pro has been a game-changer for my career. The guaranteed placements and internships helped me land my dream job!"
+          <div className="feature-card" style={{ padding: "28px" }}>
+            <p style={{ fontStyle: "italic", color: "var(--text-grey)", fontSize: "14px", lineHeight: "1.7" }}>
+              "JobConnect Pro was a turning point for my career. The targeted placements and network introduced me directly to founding engineering teams."
             </p>
-            <span style={{ color: "var(--accent-gold)", fontWeight: "600", fontSize: "14px", marginTop: "12px" }}>
-              - Rohan J., Software Dev
-            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700", fontSize: "13px" }}>R</div>
+              <div>
+                <span style={{ color: "var(--accent-white)", fontWeight: "600", fontSize: "14px", display: "block" }}>
+                  Rohan J.
+                </span>
+                <span style={{ color: "var(--text-muted)", fontSize: "12px" }}>Software Engineer</span>
+              </div>
+            </div>
           </div>
 
-          <div className="feature-card" style={{ padding: "24px" }}>
-            <p style={{ fontStyle: "italic", color: "var(--text-grey)" }}>
-              "Thanks to JobBoard Pro, I was able to upload my resume and get noticed by top recruiters. The platform is user-friendly and effective."
+          <div className="feature-card" style={{ padding: "28px" }}>
+            <p style={{ fontStyle: "italic", color: "var(--text-grey)", fontSize: "14px", lineHeight: "1.7" }}>
+              "Thanks to JobConnect Pro, I uploaded my resume and got matched with senior hiring leaders within days. Clean, efficient, and direct."
             </p>
-            <span style={{ color: "var(--accent-gold)", fontWeight: "600", fontSize: "14px", marginTop: "12px" }}>
-              - Devam P., Systems Engineer
-            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700", fontSize: "13px" }}>A</div>
+              <div>
+                <span style={{ color: "var(--accent-white)", fontWeight: "600", fontSize: "14px", display: "block" }}>
+                  Aarav S.
+                </span>
+                <span style={{ color: "var(--text-muted)", fontSize: "12px" }}>Systems Architect</span>
+              </div>
+            </div>
           </div>
 
-          <div className="feature-card" style={{ padding: "24px" }}>
-            <p style={{ fontStyle: "italic", color: "var(--text-grey)" }}>
-              "JobBoard Pro's hackathon section is fantastic! I participated in several events and won prizes that boosted my portfolio."
+          <div className="feature-card" style={{ padding: "28px" }}>
+            <p style={{ fontStyle: "italic", color: "var(--text-grey)", fontSize: "14px", lineHeight: "1.7" }}>
+              "JobConnect Pro's hackathon portal is phenomenal! I participated in two national tech challenges and built a portfolio recruiters loved."
             </p>
-            <span style={{ color: "var(--accent-gold)", fontWeight: "600", fontSize: "14px", marginTop: "12px" }}>
-              - Shubham J., Data Analyst
-            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700", fontSize: "13px" }}>S</div>
+              <div>
+                <span style={{ color: "var(--accent-white)", fontWeight: "600", fontSize: "14px", display: "block" }}>
+                  Shubham J.
+                </span>
+                <span style={{ color: "var(--text-muted)", fontSize: "12px" }}>Data Analyst</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

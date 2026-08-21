@@ -16,7 +16,9 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="logo">
         <Link to="/">
-          <Briefcase size={22} style={{ color: "var(--accent-gold)" }} /> JobConnect <span>Pro</span>
+          <div className="logo-dot" />
+          <span>JobConnect</span>
+          <span style={{ fontSize: "12px", background: "rgba(255, 255, 255, 0.1)", padding: "2px 8px", borderRadius: "100px", border: "1px solid var(--border-card)", color: "var(--accent-white)" }}>PRO</span>
         </Link>
       </div>
 
@@ -26,37 +28,37 @@ export default function Navbar() {
         </li>
         <li>
           <NavLink to="/network">
-            <Users size={16} /> Network
+            <Users size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Network
           </NavLink>
         </li>
         <li>
           <NavLink to="/upload-resume">
-            <FileText size={16} /> Resume
+            <FileText size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Resume
           </NavLink>
         </li>
         <li>
           <NavLink to="/achievements">
-            <Award size={16} /> Achievements
+            <Award size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Achievements
           </NavLink>
         </li>
         <li>
           <NavLink to="/hackathons">
-            <Code2 size={16} /> Hackathons
+            <Code2 size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Hackathons
           </NavLink>
         </li>
 
         {token && user && (
           <li>
             <NavLink to="/dashboard">
-              <User size={16} /> Dashboard
+              <User size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Dashboard
             </NavLink>
           </li>
         )}
 
         {token && user && user.role === "admin" && (
           <li>
-            <NavLink to="/admin" style={{ color: "var(--accent-gold)" }}>
-              <ShieldCheck size={16} /> Admin
+            <NavLink to="/admin" style={{ color: "var(--accent-white)", fontWeight: "700" }}>
+              <ShieldCheck size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Admin
             </NavLink>
           </li>
         )}
@@ -65,20 +67,20 @@ export default function Navbar() {
       <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
         {!token ? (
           <>
-            <Link to="/login" className="btn-secondary" style={{ padding: "8px 16px", fontSize: "14px" }}>
+            <Link to="/login" className="btn-secondary" style={{ padding: "8px 18px", fontSize: "13px" }}>
               Login
             </Link>
-            <Link to="/register" className="btn-primary" style={{ padding: "8px 16px", fontSize: "14px" }}>
+            <Link to="/register" className="btn-primary" style={{ padding: "8px 18px", fontSize: "13px" }}>
               Register
             </Link>
           </>
         ) : (
           <>
             <span style={{ fontSize: "13px", color: "var(--text-grey)" }}>
-              Hi, <strong style={{ color: "var(--text-white)" }}>{user?.fname}</strong>
+              Hi, <strong style={{ color: "var(--text-primary)" }}>{user?.fname}</strong>
             </span>
-            <button onClick={handleLogout} className="logout-btn">
-              <LogOut size={16} /> Logout
+            <button onClick={handleLogout} className="btn-secondary" style={{ padding: "6px 14px", fontSize: "13px" }}>
+              <LogOut size={14} /> Logout
             </button>
           </>
         )}
